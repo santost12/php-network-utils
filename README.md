@@ -1,7 +1,7 @@
 # php-network-utils
 Basic network utils written in PHP.
 
-Supports:
+## Features
 * traceroute (IPv4 & IPv6)
 * ping (IPv4 & IPv6)
 * View OS routing table
