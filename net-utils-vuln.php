@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>PHP network utils</title>
+<title>PHP network utils</title>
+<style>
+* {
+  font-size: 105%;
+}
+
+pre {
+  font-family: 'Courier New', monospace;
+  color: lightgreen;
+}
+
+body {
+  background-color: black;
+}
+</style>
 </head>
 <body>
 
@@ -15,13 +29,10 @@
   <option value="ipv6-routes">IPv6 routes</option>
   <option value="ipv6-trace">IPv6 traceroute</option>
 </select>
-
-  <input type="text" name="ip" placeholder="IP address"></input><br><br>
-  <input type="submit" name="submit"></input>
+  <input type="text" name="ip" placeholder="IP address"/><br><br>
+  <input type="submit" name="submit"/>
 </form>
-
 <?php
-
 if (isset($_GET['submit'])) {
   $action = $_GET['action'];
   $ipaddr = $_GET['ip'];
@@ -29,7 +40,7 @@ if (isset($_GET['submit'])) {
 
   function ping($ipaddr) {
     if(empty($ipaddr)) {
-      echo "Error: You need to enter an IP address";
+      echo "<pre>Error: You need to enter an IP address or domain name</pre>";
       exit();
     }
 
@@ -53,7 +64,7 @@ if (isset($_GET['submit'])) {
 
   function traceroute($ipaddr) {
     if (empty($ipaddr)) {
-      echo "Error: You need to enter an IP address";
+      echo "<pre>Error: You need to enter an IP address or domain name</pre>";
       exit();
     }
 
@@ -82,9 +93,7 @@ if (isset($_GET['submit'])) {
       traceroute($ipaddr);
       break;
   }
-
 }
 ?>
-
 </body>
 </html>
